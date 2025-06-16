@@ -1,0 +1,22 @@
+---
+description: 
+globs: *.tsx
+alwaysApply: false
+---
+# UI and Design Direction
+
+- Overall style is neo-brutalism web design.
+- Use bold colors, strong contrast (black/yellow, purple/green, etc.), and large typography.
+- Layouts are grid/card-based, with clear block separation.
+- Allow playful, slightly experimental positioning or decorative elements.
+- Avoid generic portal/blog look.
+- GNB/navbar should also reflect the overall design, not minimalistic.
+- For all components, prefer shadcn + Tailwind v4.1 utilities.
+
+# Component Principles
+
+- Use Radix UI primitives where needed for accessibility.
+- Customize shadcn components to fit the neo-brutalism style.
+- Allow for big heading fonts, visible borders, intentional shadow or no shadow at all.
+- Input and button elements can have oversized padding, clear outlines, or accent colors.
+- Cards can have flat or strong drop shadow, bold borders.
