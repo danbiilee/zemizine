@@ -9,15 +9,15 @@ const menus = [
   },
   {
     name: "다이어리",
-    to: "/diary",
+    to: "/diaries",
   },
   {
     name: "방명록",
-    to: "/guestbook",
+    to: "/guestbooks",
   },
   {
     name: "설정",
-    to: "/setting",
+    to: "/settings",
   },
 ];
 
@@ -29,8 +29,8 @@ export default function LocalNavigation() {
     () =>
       menus.map((menu) => ({
         ...menu,
-        to: `/space/${userId}${menu.to}`,
-        selected: location.pathname === `/space/${userId}${menu.to}`,
+        to: `/${userId}${menu.to}`,
+        selected: location.pathname === `/${userId}${menu.to}`,
       })),
     [userId, location.pathname]
   );

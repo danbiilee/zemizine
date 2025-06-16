@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Drawer from "~/pages/space/home/components/drawer";
+import Drawer from "~/pages/home/components/drawer";
 import WeeklyOverview from "./components/weekly-overview";
 import MonthlyOverview from "./components/monthly-overview";
 

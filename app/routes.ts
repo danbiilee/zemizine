@@ -2,6 +2,6 @@ import { type RouteConfig, index, route } from "@react-router/dev/routes";
 
 export default [
   index("./pages/portal.tsx"),
-  route("space/:userId", "./pages/space/home/index.tsx"),
-  route("space/:userId/diary", "./pages/space/diary/index.tsx"),
+  route(":userId", "./pages/home/index.tsx"),
+  route(":userId/diaries", "./pages/diaries/index.tsx"),
 ] satisfies RouteConfig;
