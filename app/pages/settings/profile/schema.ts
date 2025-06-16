@@ -15,15 +15,18 @@ export const users = pgSchema("auth").table("users", {
   id: uuid().primaryKey(),
 });
 
+/**
+ * references(): foreign key
+ * jsonb(): 카운트를 역정규화 하기 위해 json 데이터 사용
+ */
 export const profiles = pgTable("profiles", {
   profile_id: uuid()
     .primaryKey()
-    .references(() => users.id, { onDelete: "cascade" }), // foreign key
+    .references(() => users.id, { onDelete: "cascade" }),
   title: text().notNull(),
   username: text(),
   description: text(),
   image: text(),
-  // json: 카운트를 역정규화 하기 위함
   stats: jsonb().$type<{
     views: number;
     followers: number;
@@ -34,6 +37,7 @@ export const profiles = pgTable("profiles", {
   updated_at: timestamp().notNull().defaultNow(),
 });
 
+// TODO: 친구 추가 방식으로 변경하기?
 export const follows = pgTable("follows", {
   follower_id: uuid().references(() => profiles.profile_id, {
     onDelete: "cascade",
