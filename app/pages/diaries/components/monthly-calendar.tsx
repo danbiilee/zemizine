@@ -6,7 +6,7 @@ export default function MonthlyCalendar() {
   const { userId } = useParams();
 
   return (
-    <article className="flex flex-col items-center h-full pt-10">
+    <div className="flex flex-col items-center h-full pt-10">
       {/* Navigation */}
       {/* TODO: 회원가입 날짜 기준 이전달로 못넘어가게 + 오늘날짜 기준 다음달로 못넘어가게 처리 */}
       {/* TODO: 타이틀 없으면 날짜 노출 */}
@@ -59,6 +59,6 @@ export default function MonthlyCalendar() {
           ))}
         </ul>
       </div>
-    </article>
+    </div>
   );
 }

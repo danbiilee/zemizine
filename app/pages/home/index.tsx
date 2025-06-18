@@ -2,6 +2,7 @@ import { useState } from "react";
 import Drawer from "~/pages/home/components/drawer";
 import WeeklyOverview from "./components/weekly-overview";
 import MonthlyOverview from "./components/monthly-overview";
+import PrivateLayout from "~/components/layouts/private-layout";
 
 export default function Space() {
   const [open, setOpen] = useState({
@@ -17,19 +18,24 @@ export default function Space() {
   };
 
   return (
-    <article className="flex flex-1 bg-primary-foreground">
-      <section className="flex-1 h-full">
-        <WeeklyOverview />
-        <MonthlyOverview />
-      </section>
-      <section className="flex">
-        <Drawer isOpen={open.social} handleOpen={() => handleOpen("social")}>
-          social area
-        </Drawer>
-        <Drawer isOpen={open.profile} handleOpen={() => handleOpen("profile")}>
-          profile area
-        </Drawer>
-      </section>
-    </article>
+    <PrivateLayout>
+      <div className="flex flex-1 bg-primary-foreground">
+        <div className="flex-1 h-full">
+          <WeeklyOverview />
+          <MonthlyOverview />
+        </div>
+        <div className="flex">
+          <Drawer isOpen={open.social} handleOpen={() => handleOpen("social")}>
+            social area
+          </Drawer>
+          <Drawer
+            isOpen={open.profile}
+            handleOpen={() => handleOpen("profile")}
+          >
+            profile area
+          </Drawer>
+        </div>
+      </div>
+    </PrivateLayout>
   );
 }

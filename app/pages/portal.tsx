@@ -1,3 +1,9 @@
+import MainLayout from "~/components/layouts/main-layout";
+
 export default function Portal() {
-  return <div>hello zemizine</div>;
+  return (
+    <MainLayout>
+      <div>hello zemizine</div>
+    </MainLayout>
+  );
 }
