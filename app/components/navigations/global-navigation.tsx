@@ -48,7 +48,7 @@ export default function GlobalNavigation({
         asChild
         className="px-3 bg-primary rounded-full border-2 border-transparent font-semibold text-foreground hover:bg-primary-foreground hover:border-foreground hover:text-foreground transition-all-300"
       >
-        <Link to="/login">로그인</Link>
+        <Link to="/sign-in">로그인</Link>
       </Button>
     </header>
   );

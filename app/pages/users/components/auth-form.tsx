@@ -7,12 +7,24 @@ interface AuthFormProps {
 
 const LABEL_MAP = {
   signUp: {
-    title: "처음 오셨군요! zemizine에 오신 걸 환영해요 🎉",
+    title: (
+      <>
+        <p className="block sm:inline">처음 오셨군요!</p>
+        <p className="block sm:inline sm:ml-1">
+          zemizine에 오신 걸 환영해요 🎉
+        </p>
+      </>
+    ),
     footerNav: "이미 계정이 있으신가요?",
     footerNavLinkText: "로그인하고 오늘을 기록해보세요!",
   },
   signIn: {
-    title: "반가워요! zemizine에 로그인해 주세요 👋",
+    title: (
+      <>
+        <p className="block sm:inline">반가워요!</p>
+        <p className="block sm:inline sm:ml-1">zemizine에 로그인해 주세요 👋</p>
+      </>
+    ),
     footerNav: "아직 회원이 아니신가요?",
     footerNavLinkText: "회원가입하고 zemizine을 즐겨보세요!",
   },
@@ -23,8 +35,8 @@ export default function AuthForm({ isSignUp = false }: AuthFormProps) {
   const footerNavLink = isSignUp ? "/sign-in" : "/sign-up";
 
   return (
-    <div className="flex flex-col items-center justify-center h-full px-25 py-15">
-      <h1 className="text-xl font-bold">{LABEL_MAP[key].title}</h1>
+    <div className="flex-1 flex flex-col items-center justify-center h-full py-15 lg:flex-none lg:px-25">
+      <h1 className="text-xl font-bold text-center">{LABEL_MAP[key].title}</h1>
       <div className="flex flex-col gap-4 my-15">
         <AuthProvider type="google" />
         <AuthProvider type="github" />
