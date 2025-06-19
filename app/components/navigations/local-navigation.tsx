@@ -36,7 +36,7 @@ export default function LocalNavigation() {
   );
 
   return (
-    <nav className="border-b-2 border-foreground">
+    <nav className="bg-primary-foreground border-b-2 border-foreground">
       <ul className="flex items-center gap-10 h-12 px-5">
         {formattedMenus.map((menu) => (
           <li

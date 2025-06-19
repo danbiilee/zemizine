@@ -46,7 +46,7 @@ export default function GlobalNavigation({
       {/* 로그인/로그아웃 */}
       <Button
         asChild
-        className="px-3 bg-primary rounded-full border-2 border-transparent font-semibold text-foreground hover:bg-primary-foreground hover:border-foreground hover:text-foreground transition-all-300"
+        className="px-3 bg-primary rounded-full border-2 border-transparent font-semibold text-foreground hover:border-foreground hover:text-foreground transition-all-300"
       >
         <Link to="/sign-in">로그인</Link>
       </Button>

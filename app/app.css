@@ -63,15 +63,15 @@ a {
   --foreground: oklch(0.14 0 286);
 
   /* violet-300 */
-  --primary: oklch(0.81 0.1 294);
+  --primary: #d4b4fe;
   --primary-foreground: oklch(0.967 0.001 286.375);
 
   /* violet-600 */
-  --secondary: oklch(0.54 0.25 293);
+  --secondary: #7c2cff;
   --secondary-foreground: oklch(0.21 0.006 285.885);
 
   /* green */
-  --accent: oklch(0.723 0.219 149.579);
+  --accent: #52ea52;
   --accent-foreground: oklch(0.982 0.018 155.826);
 
   --radius: 0.65rem;
