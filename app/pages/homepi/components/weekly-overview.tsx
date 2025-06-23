@@ -62,7 +62,7 @@ export default function DiaryOverview() {
             idx === 0 && "border-l-0",
           ])}
         >
-          <Link to={`/space/${userId}/diary/${date}`}>
+          <Link to={`/diaries/${date}`}>
             {renderThumbnail(date)}
             <span className="opacity-0 absolute top-0 left-0 w-full h-full flex items-center justify-center bg-accent text-md font-extrabold transition-all-300 hover:opacity-100">
               {["월", "화", "수", "목", "금", "토", "일"][idx]}

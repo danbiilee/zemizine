@@ -1,10 +1,10 @@
 import { useState } from "react";
-import Drawer from "~/pages/home/components/drawer";
+import Drawer from "~/pages/homepi/components/drawer";
 import WeeklyOverview from "./components/weekly-overview";
 import MonthlyOverview from "./components/monthly-overview";
 import PrivateLayout from "~/components/layouts/private-layout";
 
-export default function Space() {
+export default function Homepi() {
   const [open, setOpen] = useState({
     social: false,
     profile: true,

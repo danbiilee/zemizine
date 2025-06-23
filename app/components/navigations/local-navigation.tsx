@@ -4,8 +4,8 @@ import { cn } from "~/lib/utils";
 
 const menus = [
   {
-    name: "대문",
-    to: "/",
+    name: "홈피",
+    to: "/homepi",
   },
   {
     name: "다이어리",
@@ -29,8 +29,8 @@ export default function LocalNavigation() {
     () =>
       menus.map((menu) => ({
         ...menu,
-        to: `/${userId}${menu.to}`,
-        selected: location.pathname === `/${userId}${menu.to}`,
+        to: menu.to,
+        selected: location.pathname === menu.to,
       })),
     [userId, location.pathname]
   );

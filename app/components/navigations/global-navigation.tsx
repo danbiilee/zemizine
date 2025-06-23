@@ -23,7 +23,9 @@ export default function GlobalNavigation({
         </div>
         {/* 타이틀 */}
         <h2 className="ml-1 text-lg font-semibold">
-          {isLoggedIn ? "db.log" : "zemizine"}
+          <Link to={isLoggedIn ? "/homepi" : "/"}>
+            {isLoggedIn ? "db.log" : "zemizine"}
+          </Link>
         </h2>
       </div>
       {/* 검색바 */}
