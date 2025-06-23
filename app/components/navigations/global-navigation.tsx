@@ -39,9 +39,9 @@ export default function GlobalNavigation({
           />
           <Button
             type="button"
-            className="absolute right-1 top-1 w-[28px] h-[28px] rounded-full bg-primary-foreground hover:bg-zinc-200 transition-all-300"
+            className="absolute right-1.5 top-1.5 p-1 rounded-full bg-primary-foreground hover:bg-zinc-200 transition-all-300"
           >
-            <Search strokeWidth={3} className="text-foreground" />
+            <Search className="w-4 h-4 stroke-3" />
           </Button>
         </div>
       )}

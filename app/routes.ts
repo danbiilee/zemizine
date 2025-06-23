@@ -7,4 +7,5 @@ export default [
   route("/homepi", "./pages/homepi/index.tsx"),
   route("/diaries", "./pages/diaries/index.tsx"),
   route("/diaries/:id", "./pages/diaries/[id]/index.tsx"),
+  route("/diaries/write", "./pages/diaries/write/index.tsx"),
 ] satisfies RouteConfig;
