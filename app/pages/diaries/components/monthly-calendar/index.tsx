@@ -2,7 +2,7 @@ import { useParams, Link } from "react-router";
 import { cn } from "~/lib/utils";
 import CalendarWeekdays from "./weekdays";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-import sidePanelImage from "~/assets/images/auth-side-panel.jpg";
+import exampleImage from "~/assets/images/example.jpg";
 import { FaRegPenToSquare, FaRegPaperPlane } from "react-icons/fa6";
 
 export default function MonthlyCalendar() {
@@ -14,13 +14,13 @@ export default function MonthlyCalendar() {
       <div className="flex flex-col-reverse items-center w-full mt-10 mb-10 px-5 sm:flex-row sm:justify-between sm:mt-15 sm:px-12">
         <div className="flex items-center">
           {/* Title */}
-          <div className="flex gap-0.5 order-2 sm:order-1">
+          <div className="flex flex-col sm:flex-row items-center sm:items-start gap-0.5 order-2 sm:order-1">
             {/* TODO: 타이틀 없으면 UNTITLED 노출 */}
             {/* TODO: 타이틀 설정 팝업? */}
             <h3 className="text-2xl font-extrabold sm:text-4xl lg:text-5xl">
-              EVOLUTION
+              UNTITLED
             </h3>
-            <span>2025.06</span>
+            <span className="text-sm sm:text-base lg:text-lg">2025.06</span>
           </div>
           {/* Navigation */}
           {/* TODO: 회원가입 날짜 기준 이전달로 못넘어가게 + 오늘날짜 기준 다음달로 못넘어가게 처리 */}
@@ -73,12 +73,12 @@ export default function MonthlyCalendar() {
                 className="flex items-center justify-center w-full h-full"
               >
                 <img
-                  src={sidePanelImage}
+                  src={exampleImage}
                   alt="diary"
                   className="w-full h-full object-cover"
                 />
-                <span className="absolute top-0 left-0 w-full h-full p-2 group">
-                  <span className="px-1.5 md:px-2 py-0.5 rounded-full border border-foreground bg-primary-foreground/60 text-[12px] md:text-sm font-semibold transition-all-300 group-hover:border-2 group-hover:bg-primary-foreground/80">
+                <span className="absolute top-0 left-0 w-full h-full p-2 transition-all-300 group hover:bg-primary-foreground/60">
+                  <span className="px-1.5 md:px-2 py-0.5 rounded-full border border-foreground bg-primary-foreground/60 text-[12px] md:text-sm font-semibold transition-all-300 group-hover:bg-primary-foreground/80">
                     {idx + 1}
                   </span>
                 </span>
