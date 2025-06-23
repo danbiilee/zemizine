@@ -4,7 +4,7 @@ import { cn } from "~/lib/utils";
 
 const menus = [
   {
-    name: "홈피",
+    name: "홈",
     to: "/homepi",
   },
   {
@@ -30,7 +30,7 @@ export default function LocalNavigation() {
       menus.map((menu) => ({
         ...menu,
         to: menu.to,
-        selected: location.pathname === menu.to,
+        selected: location.pathname.startsWith(menu.to),
       })),
     [userId, location.pathname]
   );

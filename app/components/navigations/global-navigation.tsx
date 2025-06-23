@@ -22,11 +22,11 @@ export default function GlobalNavigation({
           </Link>
         </div>
         {/* 타이틀 */}
-        <h2 className="ml-1 text-lg font-semibold">
+        <h1 className="ml-1 text-lg font-semibold">
           <Link to={isLoggedIn ? "/homepi" : "/"}>
             {isLoggedIn ? "db.log" : "zemizine"}
           </Link>
-        </h2>
+        </h1>
       </div>
       {/* 검색바 */}
       {isLoggedIn && (
@@ -39,7 +39,7 @@ export default function GlobalNavigation({
           />
           <Button
             type="button"
-            className="absolute right-1 top-1 w-[28px] h-[28px] rounded-full bg-primary-foreground hover:bg-foreground/5 transition-all-300"
+            className="absolute right-1 top-1 w-[28px] h-[28px] rounded-full bg-primary-foreground hover:bg-zinc-200 transition-all-300"
           >
             <Search strokeWidth={3} className="text-foreground" />
           </Button>
