@@ -12,11 +12,13 @@
     "db:studio": "drizzle-kit studio"
   },
   "dependencies": {
+    "@ckeditor/ckeditor5-react": "^9.5.0",
     "@radix-ui/react-dialog": "^1.1.14",
     "@radix-ui/react-scroll-area": "^1.2.9",
     "@radix-ui/react-slot": "^1.2.3",
     "@react-router/node": "^7.5.3",
     "@react-router/serve": "^7.5.3",
+    "ckeditor5": "^45.2.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "date-fns": "^4.1.0",
