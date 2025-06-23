@@ -1,3 +1,4 @@
+import { Button } from "~/components/ui/button";
 import DiaryComments from "./comments";
 
 export default function DiaryContent() {
@@ -34,6 +35,14 @@ export default function DiaryContent() {
           tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales
           sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit
           cursus nunc,
+        </div>
+        {/* 버튼 */}
+        <div className="flex items-center justify-between pt-4 mt-4 border-t-1 border-dashed border-muted-foreground font-semibold">
+          <Button>스티커</Button>
+          <div className="flex items-center gap-3 lg:gap-4">
+            <Button>수정</Button>
+            <Button className="">삭제</Button>
+          </div>
         </div>
       </div>
       <DiaryComments />
