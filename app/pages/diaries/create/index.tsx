@@ -3,7 +3,7 @@ import PrivateLayout from "~/components/layouts/private-layout";
 
 const Editor = lazy(() => import("./components/editor"));
 
-export default function DiaryWrite() {
+export default function DiaryCreate() {
   return (
     <PrivateLayout>
       <div className="flex-1 flex flex-col min-h-0 bg-primary-foreground">

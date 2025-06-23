@@ -37,19 +37,13 @@ export default function GlobalNavigation({
             placeholder="친구를 찾으시나요?"
             className="w-[300px] h-[36px] rounded-full border border-foreground bg-primary-foreground"
           />
-          <Button
-            type="button"
-            className="absolute right-1.5 top-1.5 p-1 rounded-full bg-primary-foreground hover:bg-zinc-200 transition-all-300"
-          >
+          <Button type="button" className="absolute right-1.5 top-1.5 p-1">
             <Search className="w-4 h-4 stroke-3" />
           </Button>
         </div>
       )}
       {/* 로그인/로그아웃 */}
-      <Button
-        asChild
-        className="px-3 bg-primary rounded-full border-2 border-transparent font-semibold text-foreground hover:border-foreground hover:text-foreground transition-all-300"
-      >
+      <Button asChild className="px-3 bg-primary font-semibold text-foreground">
         <Link to="/sign-in">로그인</Link>
       </Button>
     </header>

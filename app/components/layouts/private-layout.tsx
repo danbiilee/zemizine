@@ -1,5 +1,5 @@
 import LocalNavigation from "~/components/navigations/local-navigation";
-import MainLayout from "./main-layout";
+import MainLayout from "./public-layout";
 
 export default function PrivateLayout({
   children,

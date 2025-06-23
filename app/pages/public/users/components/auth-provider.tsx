@@ -22,7 +22,7 @@ export default function AuthProvider({ type }: AuthProviderProps) {
   return (
     <Button
       type="button"
-      className="w-70 py-5 border-2 border-foreground rounded-full text-foreground hover:bg-accent transition-all-300"
+      className="flex items-center justify-center gap-2 w-70 h-12 border-2 border-foreground rounded-full text-foreground hover:bg-accent transition-all-300"
     >
       {PROVIDER_MAP.icon[type]} Continue with {PROVIDER_MAP.label[type]}
     </Button>

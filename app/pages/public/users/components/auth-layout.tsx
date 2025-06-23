@@ -1,4 +1,4 @@
-import MainLayout from "~/components/layouts/main-layout";
+import MainLayout from "~/components/layouts/public-layout";
 import AuthForm from "./auth-form";
 import AuthSidePanel from "./auth-side-panel";
 

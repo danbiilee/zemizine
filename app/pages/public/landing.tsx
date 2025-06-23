@@ -1,9 +1,9 @@
-import MainLayout from "~/components/layouts/main-layout";
+import PublicLayout from "~/components/layouts/public-layout";
 
 export default function Portal() {
   return (
-    <MainLayout>
+    <PublicLayout>
       <div>hello zemizine</div>
-    </MainLayout>
+    </PublicLayout>
   );
 }

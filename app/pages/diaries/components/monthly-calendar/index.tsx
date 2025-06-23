@@ -69,7 +69,7 @@ export default function MonthlyCalendar() {
               {/* TODO: 캘린더 날짜 노출 제대로 + 빈데이터 처리 */}
               {/* TODO: 상세, 편집 페이지 분기 처리 */}
               <Link
-                to={`/diaries/2025-06-01`}
+                to={`/${userId}/diaries/2025-06-01`}
                 className="flex items-center justify-center w-full h-full"
               >
                 <img
