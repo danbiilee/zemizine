@@ -4,12 +4,18 @@ import CalendarWeekdays from "./weekdays";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import exampleImage from "~/assets/images/example.jpg";
 import { FaRegPenToSquare, FaRegPaperPlane } from "react-icons/fa6";
+import { useState } from "react";
+import { ThemeModal } from "../theme-modal";
+import { Button } from "~/components/ui/button";
 
 export default function MonthlyCalendar() {
   const { userId } = useParams();
+  const [open, setOpen] = useState(false);
 
   return (
     <div className="flex flex-col items-center h-full">
+      <ThemeModal open={open} onOpenChange={setOpen} />
+
       {/* Header */}
       <div className="flex flex-col-reverse items-center w-full mt-10 mb-10 px-5 sm:flex-row sm:justify-between sm:mt-15 sm:px-12">
         <div className="flex items-center">
@@ -17,9 +23,12 @@ export default function MonthlyCalendar() {
           <div className="flex flex-col sm:flex-row items-center sm:items-start gap-0.5 order-2 sm:order-1">
             {/* TODO: 타이틀 없으면 UNTITLED 노출 */}
             {/* TODO: 타이틀 설정 팝업? */}
-            <h3 className="text-2xl font-extrabold sm:text-4xl lg:text-5xl">
+            <Button
+              className="text-2xl font-extrabold sm:text-4xl lg:text-5xl transition-all-300 hover:text-secondary"
+              onClick={() => setOpen(true)}
+            >
               UNTITLED
-            </h3>
+            </Button>
             <span className="text-sm sm:text-base lg:text-lg">2025.06</span>
           </div>
           {/* Navigation */}

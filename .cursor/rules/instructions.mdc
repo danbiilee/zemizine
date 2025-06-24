@@ -42,6 +42,7 @@ The AI should:
 - Don't import anything from Remix. Any @remix-run import should be imported from "react-router".
 - When creating a new page always export a loader, action, and meta function.
 - Route types should be imported like this: `import type { Route } from "./+types/...";`
+- 동일한 경로에서 import 하고 있는 컴포넌트들의 import는 한 라인으로 합칠 것. `import { Button } from "./components"; import { Input } from "./components";` 가 아니라 `import { Button, Input } from "./components";`
 - `useLoaderData` does not exist anymore. Instead, components receive Router.ComponentProps type param that contains loaderData.
 - `useActionData` does not exist anymore. Instead, components receive Router.ComponentProps type param that contains actionData.
 - Never use `useLoaderData` or `useActionData` in page components.
