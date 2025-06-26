@@ -10,4 +10,5 @@ export default [
   route("/:userId/diaries/create", "./pages/diaries/create/index.tsx"),
   route("/:userId/diaries/:diaryId", "./pages/diaries/[id]/index.tsx"),
   route("/:userId/guestbooks", "./pages/guestbooks/index.tsx"),
+  route("/:userId/settings", "./pages/settings/index.tsx"),
 ] satisfies RouteConfig;
