@@ -108,6 +108,12 @@
   .btn-accent {
     @apply rounded-full border-2 bg-accent font-semibold;
   }
+  .btn-outline {
+    @apply rounded-full border-2 text-foreground font-semibold hover:bg-accent transition-all-300;
+  }
+  .btn-text {
+    @apply font-semibold underline hover:text-secondary transition-all-300;
+  }
 }
 
 @utility flex-center {

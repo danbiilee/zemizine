@@ -1,4 +1,4 @@
-import MainLayout from "~/components/layouts/public-layout";
+import PublicLayout from "~/components/layouts/public-layout";
 import AuthForm from "./auth-form";
 import AuthSidePanel from "./auth-side-panel";
 
@@ -8,11 +8,11 @@ interface AuthLayoutProps {
 
 export default function AuthLayout({ isSignUp = false }: AuthLayoutProps) {
   return (
-    <MainLayout>
+    <PublicLayout>
       <div className="flex h-full">
         <AuthForm isSignUp={isSignUp} />
         <AuthSidePanel />
       </div>
-    </MainLayout>
+    </PublicLayout>
   );
 }
