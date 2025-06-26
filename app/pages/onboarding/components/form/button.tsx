@@ -2,7 +2,7 @@ import { Button } from "~/components/ui/button";
 
 interface OnboardingButtonProps {
   title: string;
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 export default function OnboardingButton({
@@ -10,7 +10,7 @@ export default function OnboardingButton({
   onClick,
 }: OnboardingButtonProps) {
   return (
-    <Button className="w-full py-1 btn-accent md:text-lg" onClick={onClick}>
+    <Button className="w-full py-1.5 btn-accent md:text-lg" onClick={onClick}>
       {title}
     </Button>
   );

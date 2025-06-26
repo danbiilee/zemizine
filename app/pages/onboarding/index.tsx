@@ -10,8 +10,8 @@ export interface OnboardingState {
     myNickname: string;
     myProfileImage?: File;
     zemTitle: string;
-    zemDescription?: string;
-    zemVisibility?: "public" | "friends" | "private";
+    zemDescription: string;
+    zemVisibility: "PUBLIC" | "FRIEND" | "PRIVATE";
   };
 }
 
@@ -23,13 +23,11 @@ export default function Onboarding() {
       myProfileImage: undefined,
       zemTitle: "",
       zemDescription: "",
-      zemVisibility: "public",
+      zemVisibility: "PUBLIC",
     },
   });
 
   const showFunnel = state.step > 0;
-
-  console.log(state);
 
   const handleStepChange = () => {
     setState((prev) => ({
@@ -45,8 +43,8 @@ export default function Onboarding() {
     }));
   };
 
-  const handleSubmit = () => {
-    console.log(state);
+  const handleSubmit = (data: Partial<OnboardingState["data"]>) => {
+    console.log({ ...state.data, ...data });
   };
 
   return (

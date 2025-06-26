@@ -31,8 +31,7 @@ export const FUNNEL_STEPS = [
           보게 될 이름과 소개에요.
         </p>
         <p>
-          지금 떠오르는 감정이나 취향을 담아보세요! 나중에 언제든 다시 바꿀 수
-          있어요.
+          너무 깊게 고민하지 않아도 돼요! 나중에 언제든 다시 바꿀 수 있어요.
         </p>
       </>
     ),
@@ -42,9 +41,26 @@ export const FUNNEL_STEPS = [
     title: "내 잼, 누구와 나누고 싶나요?",
     description: (
       <>
-        <p>지금은 편한 선택을 해보세요.</p>
-        <p>잼은 언제든 닫을 수도, 열 수도 있어요.</p>
+        <p>잼을 닫을 수도, 열 수도 있어요.</p>
+        <p>
+          너무 깊게 고민하지 않아도 돼요! 나중에 언제든 다시 바꿀 수 있어요.
+        </p>
       </>
     ),
+  },
+];
+
+export const VISIBILITY_OPTIONS = [
+  {
+    value: "PUBLIC",
+    label: "누구나 볼 수 있어요",
+  },
+  {
+    value: "FRIEND",
+    label: "잼메이트에게만 보여줄래요",
+  },
+  {
+    value: "PRIVATE",
+    label: "나만 볼 수 있어요",
   },
 ];
