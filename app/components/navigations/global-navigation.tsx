@@ -9,15 +9,15 @@ interface GlobalNavigationProps {
 
 // TODO: 로그인 상태 처리
 export default function GlobalNavigation({
-  isLoggedIn,
+  isLoggedIn = false,
 }: GlobalNavigationProps) {
   return (
-    <header className="fixed top-0 left-0 right-0 flex items-center justify-between h-12 px-5 bg-primary">
+    <header className="fixed top-0 left-0 right-0 flex-between h-12 px-5">
       {/* 로고 + 타이틀 */}
-      <div className="flex items-center gap-2">
+      <div className="flex-center-y gap-2">
         {/* 로고  */}
-        <div className="w-8 h-8 rounded-full border-2 border-foreground text-xl font-bold text-foreground">
-          <Link to="/" className="flex items-center justify-center">
+        <div className="size-8 rounded-full border-2 text-xl font-bold">
+          <Link to="/" className="flex-center">
             Z
           </Link>
         </div>
@@ -35,15 +35,15 @@ export default function GlobalNavigation({
           <Input
             type="text"
             placeholder="친구를 찾으시나요?"
-            className="w-[300px] h-[36px] rounded-full border border-foreground bg-primary-foreground"
+            className="w-[300px] h-[36px] rounded-full border bg-primary-foreground"
           />
           <Button type="button" className="absolute right-1.5 top-1.5 p-1">
-            <Search className="w-4 h-4 stroke-3" />
+            <Search className="size-4stroke-3" />
           </Button>
         </div>
       )}
       {/* 로그인/로그아웃 */}
-      <Button asChild className="px-3 bg-primary font-semibold text-foreground">
+      <Button asChild className="px-3 font-semibold">
         <Link to="/sign-in">로그인</Link>
       </Button>
     </header>
