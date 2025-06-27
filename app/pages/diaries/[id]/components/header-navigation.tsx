@@ -14,13 +14,13 @@ export default function DiaryHeaderNavigation() {
       <div className="hidden md:flex flex-1 flex-wrap gap-1 md:gap-2 p-4 md:border-l-2">
         {/* 월 이동 */}
         <div className="flex-center-y gap-2">
-          <Button className="btn-outline-muted-sqaure p-0.5">
+          <Button className="btn-outline-muted rounded-md p-0.5">
             <IoIosArrowBack className="size-4 stroke-5 text-muted-foreground" />
           </Button>
           <span className="text-muted-foreground md:text-lg font-semibold">
             2025.06
           </span>
-          <Button className="btn-outline-muted-sqaure p-0.5">
+          <Button className="btn-outline-muted rounded-md p-0.5">
             <IoIosArrowForward className="size-4 stroke-5 text-muted-foreground" />
           </Button>
         </div>

@@ -13,7 +13,7 @@ import {
 import ZemiFileUpload from "~/components/zemi/zemi-file-upload";
 import { Input } from "~/components/ui/input";
 import NextButton from "./button";
-import defaultProfileImage from "~/assets/images/my-notion-face-transparent.png";
+import defaultPreviewImage from "~/assets/images/my-notion-face-transparent.png";
 
 import type { OnboardingState } from "../..";
 
@@ -35,8 +35,6 @@ export default function OnboardingUser({
   myProfileImage,
   handleClick,
 }: OnboardingProfileProps) {
-  const [preview, setPreview] = useState<string | null>(null);
-
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
@@ -55,22 +53,11 @@ export default function OnboardingUser({
     });
   };
 
-  // 프로필 이미지 미리보기 설정
-  useEffect(() => {
-    if (myProfileImage) {
-      const reader = new FileReader();
-      reader.onloadend = () => setPreview(reader.result as string);
-      reader.readAsDataURL(myProfileImage);
-    } else {
-      setPreview(null);
-    }
-  }, [myProfileImage]);
-
   return (
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="flex-center-x flex-col gap-10"
+        className="flex-center-x flex-col gap-10 w-full"
       >
         <div className="flex flex-col gap-4">
           {/* 닉네임 */}
@@ -97,8 +84,7 @@ export default function OnboardingUser({
             render={({ field }) => (
               <ZemiFileUpload
                 field={field}
-                preview={preview || defaultProfileImage}
-                setPreview={setPreview}
+                defaultPreviewImage={defaultPreviewImage}
               />
             )}
           />

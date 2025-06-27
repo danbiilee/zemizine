@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
@@ -7,23 +7,20 @@ import { FormControl, FormItem } from "../ui/form";
 import type { ControllerRenderProps } from "react-hook-form";
 
 interface ZemiFileUploadProps {
-  field: ControllerRenderProps<
-    {
-      myNickname: string;
-      myProfileImage?: File | undefined;
-    },
-    "myProfileImage"
-  >;
-  preview: string;
-  setPreview: React.Dispatch<React.SetStateAction<string | null>>;
+  id?: string;
+  name?: string;
+  field?: ControllerRenderProps<any>;
+  defaultPreviewImage?: string;
 }
 
 export default function ZemiFileUpload({
+  id,
+  name,
   field,
-  preview,
-  setPreview,
+  defaultPreviewImage,
 }: ZemiFileUploadProps) {
   const inputRef = useRef<HTMLInputElement>(null);
+  const [preview, setPreview] = useState<string | null>(null);
 
   return (
     <FormItem className="relative flex-center flex-col gap-0 w-full border-2">
@@ -31,12 +28,14 @@ export default function ZemiFileUpload({
         <div>
           <Input
             ref={inputRef}
+            id={id}
+            name={name}
             className="hidden"
             type="file"
             accept="image/*"
             onChange={(e) => {
               const file = e.target.files?.[0];
-              field.onChange(file);
+              field?.onChange(file);
               if (file) {
                 const reader = new FileReader();
                 reader.onloadend = () => setPreview(reader.result as string);
@@ -55,7 +54,7 @@ export default function ZemiFileUpload({
         </div>
       </FormControl>
       <img
-        src={preview}
+        src={preview ?? defaultPreviewImage}
         alt="미리보기"
         className="size-fit object-cover border-t-2"
       />

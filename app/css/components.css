@@ -11,8 +11,8 @@
   .btn-outline {
     @apply rounded-full border-2 text-foreground font-semibold hover:bg-accent transition-all-300;
   }
-  .btn-outline-muted-sqaure {
-    @apply rounded-md border-2 border-muted-foreground font-semibold hover:bg-zinc-200 transition-all-300;
+  .btn-outline-muted {
+    @apply rounded-full border-2 border-muted-foreground font-semibold hover:bg-zinc-200 transition-all-300;
   }
   .btn-text {
     @apply font-semibold underline underline-offset-2 hover:text-secondary transition-all-300;
@@ -28,7 +28,7 @@
     @apply text-sm! md:text-base! placeholder:text-muted-foreground! placeholder:text-sm! md:placeholder:text-base!;
   }
   .input-outline {
-    @apply border-foreground! text-sm! md:text-base! placeholder:text-muted-foreground! placeholder:text-sm! md:placeholder:text-base!;
+    @apply border-2! border-foreground! text-sm! md:text-base! placeholder:text-muted-foreground! placeholder:text-sm! md:placeholder:text-base!;
   }
   .input-solid {
     @apply rounded-full! border-none! bg-primary-foreground! hover:bg-zinc-200! transition-all-300!;
