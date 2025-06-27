@@ -10,8 +10,8 @@ import {
   FormMessage,
 } from "~/components/ui/form";
 import NextButton from "./button";
-import ZemiInput from "~/components/zemi/zemi-input";
-import ZemiTextarea from "~/components/zemi/zemi-textarea";
+import { Input } from "~/components/ui/input";
+import { Textarea } from "~/components/ui/textarea";
 
 import type { OnboardingState } from "../..";
 
@@ -62,7 +62,8 @@ export default function OnboardingSpace({
             render={({ field }) => (
               <FormItem>
                 <FormControl>
-                  <ZemiInput
+                  <Input
+                    className="input-outline px-3 md:px-5 py-5 md:py-6"
                     placeholder="잼에 어울리는 이름을 붙여주세요"
                     {...field}
                   />
@@ -77,7 +78,8 @@ export default function OnboardingSpace({
             render={({ field }) => (
               <FormItem className="w-full">
                 <FormControl>
-                  <ZemiTextarea
+                  <Textarea
+                    className="input-outline px-3 md:px-5"
                     placeholder="내 잼은 이런 공간이에요!"
                     {...field}
                   />

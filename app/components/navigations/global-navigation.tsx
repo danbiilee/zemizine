@@ -1,7 +1,7 @@
 import { Search } from "lucide-react";
+import { Link } from "react-router";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
-import { Link } from "react-router";
 
 interface GlobalNavigationProps {
   isLoggedIn?: boolean;
@@ -31,14 +31,13 @@ export default function GlobalNavigation({
       {/* 검색바 */}
       {isLoggedIn && (
         <div className="relative mx-8">
-          {/* TODO: 검색바 포커스 시 테두리 없애기 */}
           <Input
             type="text"
             placeholder="친구를 찾으시나요?"
-            className="w-[300px] h-[36px] rounded-full border bg-primary-foreground"
+            className="w-[300px] h-[36px] input-solid"
           />
           <Button type="button" className="absolute right-1.5 top-1.5 p-1">
-            <Search className="size-4stroke-3" />
+            <Search className="size-4 stroke-3" />
           </Button>
         </div>
       )}

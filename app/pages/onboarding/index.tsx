@@ -48,7 +48,7 @@ export default function Onboarding() {
   };
 
   return (
-    <PublicLayout>
+    <PublicLayout withAutoScroll>
       <div className="flex-center flex-col gap-10 max-w-120 min-h-full px-10 mx-auto py-15 md:py-20">
         {showFunnel ? (
           <Funnel

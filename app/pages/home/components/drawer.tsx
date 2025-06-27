@@ -12,13 +12,13 @@ export default function Drawer({ isOpen, handleOpen, children }: DrawerProps) {
   return (
     <div
       className={cn([
-        "relative flex h-full bg-primary-foreground border-l-2 border-foreground shadow-xl transition-all-300",
+        "relative flex h-full border-l-2 shadow-xl transition-all-300",
         isOpen ? "w-[240px]" : "w-[28px]",
       ])}
     >
       <button
         className={cn([
-          "absolute left-[1px] top-[2px] rounded-full border-2 border-transparent hover:border-foreground hover:bg-accent transition-all-300",
+          "absolute left-[1px] top-[2px] btn-ghost-accent",
           isOpen && "border-foreground bg-accent/85",
         ])}
         onClick={handleOpen}

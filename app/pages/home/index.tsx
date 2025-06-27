@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 import Drawer from "~/pages/home/components/drawer";
 import WeeklyOverview from "./components/weekly-overview";
 import MonthlyOverview from "./components/monthly-overview";
@@ -19,7 +20,7 @@ export default function Homepi() {
 
   return (
     <PrivateLayout>
-      <div className="flex flex-1 bg-primary-foreground">
+      <div className="flex flex-1 h-full">
         <div className="flex-1 h-full">
           <WeeklyOverview />
           <MonthlyOverview />

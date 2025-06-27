@@ -1,5 +1,6 @@
 import LocalNavigation from "~/components/navigations/local-navigation";
-import MainLayout from "./public-layout";
+import PublicLayout from "./public-layout";
+import AutoScrollContainer from "./auto-scroll-container";
 
 export default function PrivateLayout({
   children,
@@ -7,9 +8,11 @@ export default function PrivateLayout({
   children: React.ReactNode;
 }) {
   return (
-    <MainLayout isLoggedIn>
+    <PublicLayout isLoggedIn>
       <LocalNavigation />
-      {children}
-    </MainLayout>
+      <AutoScrollContainer className="bg-primary-foreground">
+        {children}
+      </AutoScrollContainer>
+    </PublicLayout>
   );
 }

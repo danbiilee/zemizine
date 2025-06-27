@@ -3,18 +3,24 @@ import AutoScrollContainer from "./auto-scroll-container";
 
 interface MainLayoutProps {
   children: React.ReactNode;
-  isLoggedIn?: boolean;
+  isLoggedIn?: boolean; // TODO: 제거
+  withAutoScroll?: boolean;
 }
 
 export default function PublicLayout({
   children,
   isLoggedIn,
+  withAutoScroll = false,
 }: MainLayoutProps) {
   return (
     <main className="flex min-w-[375px] h-screen pt-12 px-3 pb-3">
       <GlobalNavigation isLoggedIn={isLoggedIn} />
       <div className="flex-1 flex flex-col border-2">
-        <AutoScrollContainer>{children}</AutoScrollContainer>
+        {withAutoScroll ? (
+          <AutoScrollContainer>{children}</AutoScrollContainer>
+        ) : (
+          children
+        )}
       </div>
     </main>
   );

@@ -1,33 +1,16 @@
 import { useMemo } from "react";
 import { Link, useLocation, useParams } from "react-router";
-import { cn } from "~/lib/utils";
 
-const menus = [
-  {
-    name: "홈",
-    to: "/home",
-  },
-  {
-    name: "다이어리",
-    to: "/diaries",
-  },
-  {
-    name: "방명록",
-    to: "/guestbooks",
-  },
-  {
-    name: "설정",
-    to: "/settings",
-  },
-];
+import { LNB_MENUS } from "~/constants/menu";
+import { cn } from "~/lib/utils";
 
 export default function LocalNavigation() {
   const location = useLocation();
   const { userId } = useParams();
 
-  const formattedMenus = useMemo(
+  const formattedLNB_MENUS = useMemo(
     () =>
-      menus.map((menu) => ({
+      LNB_MENUS.map((menu) => ({
         ...menu,
         to: `/${userId}${menu.to}`,
         selected: location.pathname.includes(menu.to),
@@ -36,13 +19,13 @@ export default function LocalNavigation() {
   );
 
   return (
-    <nav className="bg-primary-foreground border-b-2 border-foreground">
-      <ul className="flex items-center gap-10 h-12 px-5">
-        {formattedMenus.map((menu) => (
+    <nav className="bg-primary-foreground border-b-2">
+      <ul className="flex-center-y gap-10 h-12 px-5">
+        {formattedLNB_MENUS.map((menu) => (
           <li
             key={menu.name}
             className={cn([
-              "rounded-full border-2 border-transparent text-sm font-semibold hover:bg-accent hover:border-foreground transition-all-300",
+              "btn-ghost-accent text-sm",
               menu.selected && "bg-accent border-foreground",
             ])}
           >

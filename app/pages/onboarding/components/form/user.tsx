@@ -11,7 +11,7 @@ import {
   FormMessage,
 } from "~/components/ui/form";
 import ZemiFileUpload from "~/components/zemi/zemi-file-upload";
-import ZemiInput from "~/components/zemi/zemi-input";
+import { Input } from "~/components/ui/input";
 import NextButton from "./button";
 import defaultProfileImage from "~/assets/images/my-notion-face-transparent.png";
 
@@ -80,7 +80,8 @@ export default function OnboardingUser({
             render={({ field }) => (
               <FormItem>
                 <FormControl>
-                  <ZemiInput
+                  <Input
+                    className="input-outline px-3 md:px-5 py-5 md:py-6"
                     placeholder="어떤 이름으로 불리고 싶나요?"
                     {...field}
                   />

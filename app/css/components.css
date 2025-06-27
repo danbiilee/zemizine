@@ -1,0 +1,27 @@
+@layer components {
+  /**
+   * 버튼 컴포넌트
+   */
+  .btn-accent {
+    @apply rounded-full border-2 bg-accent font-semibold;
+  }
+  .btn-ghost-accent {
+    @apply rounded-full border-2 border-transparent font-semibold hover:bg-accent hover:border-foreground transition-all-300;
+  }
+  .btn-outline {
+    @apply rounded-full border-2 text-foreground font-semibold hover:bg-accent transition-all-300;
+  }
+  .btn-text {
+    @apply font-semibold underline underline-offset-2 hover:text-secondary transition-all-300;
+  }
+
+  /**
+   * 인풋 컴포넌트
+   */
+  .input-outline {
+    @apply border-2! border-foreground! text-sm! md:text-base! placeholder:text-muted-foreground! placeholder:text-sm! md:placeholder:text-base!;
+  }
+  .input-solid {
+    @apply rounded-full! border! bg-primary-foreground! hover:bg-zinc-200! transition-all-300!;
+  }
+}

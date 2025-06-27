@@ -1,5 +1,6 @@
 import { X } from "lucide-react";
 import { Link, useParams } from "react-router";
+
 import { getWeekDates } from "~/lib/date-utils";
 import { cn } from "~/lib/utils";
 
@@ -41,30 +42,26 @@ export default function DiaryOverview() {
         <img
           src={diary.images[0]}
           alt="썸네일"
-          className="w-full h-full object-cover"
+          className="size-full object-cover"
         />
       );
     }
-    return (
-      <span className="flex items-center justify-center h-full text-4xl">
-        {diary.status}
-      </span>
-    );
+    return <span className="flex-center h-full text-4xl">{diary.status}</span>;
   };
 
   return (
-    <ul className="grid grid-cols-7 border-b-2 border-foreground">
+    <ul className="grid grid-cols-7 border-b-2">
       {weekDates.map((date, idx) => (
         <li
           key={date}
           className={cn([
-            "relative aspect-square border-l-2 border-foreground cursor-pointer",
+            "relative aspect-square border-l-2 cursor-pointer",
             idx === 0 && "border-l-0",
           ])}
         >
           <Link to={`/diaries/${date}`}>
             {renderThumbnail(date)}
-            <span className="opacity-0 absolute top-0 left-0 w-full h-full flex items-center justify-center bg-accent text-md font-extrabold transition-all-300 hover:opacity-100">
+            <span className="opacity-0 absolute top-0 left-0 size-full flex-cener bg-accent text-md font-extrabold transition-all-300 hover:opacity-100">
               {["월", "화", "수", "목", "금", "토", "일"][idx]}
             </span>
           </Link>

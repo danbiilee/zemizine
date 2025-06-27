@@ -1,5 +1,7 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@import "./css/components.css";
+@import "./css/utility.css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -101,56 +103,5 @@
   button,
   a {
     @apply cursor-pointer shadow-none;
-  }
-}
-
-@layer components {
-  .btn-accent {
-    @apply rounded-full border-2 bg-accent font-semibold;
-  }
-  .btn-outline {
-    @apply rounded-full border-2 text-foreground font-semibold hover:bg-accent transition-all-300;
-  }
-  .btn-text {
-    @apply font-semibold underline hover:text-secondary transition-all-300;
-  }
-}
-
-@utility flex-center {
-  @apply flex items-center justify-center;
-}
-
-@utility flex-between {
-  @apply flex items-center justify-between;
-}
-
-@utility flex-center-y {
-  @apply flex items-center;
-}
-
-@utility flex-center-x {
-  @apply flex justify-center;
-}
-
-@utility transition-all-300 {
-  @apply transition-all duration-300;
-}
-
-@utility scrollbar {
-  /* 스크롤바 전체 영역 */
-  &::-webkit-scrollbar {
-    @apply w-[15px] bg-secondary/10;
-  }
-
-  /* 스크롤바 트랙(기본 배경) */
-  &::-webkit-scrollbar-track {
-    @apply p-px border-l border-l-transparent;
-  }
-
-  /* 스크롤바 썸(막대) */
-  &::-webkit-scrollbar-thumb {
-    @apply bg-secondary/90 rounded-full;
-    background-clip: padding-box;
-    border: 2px solid transparent;
   }
 }
