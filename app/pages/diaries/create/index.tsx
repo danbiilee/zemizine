@@ -6,17 +6,11 @@ const Editor = lazy(() => import("./components/editor"));
 export default function DiaryCreate() {
   return (
     <PrivateLayout>
-      <div className="flex-1 flex flex-col min-h-0 bg-primary-foreground">
-        <Suspense
-          fallback={
-            <div className="flex items-center justify-center h-full">
-              에디터 로딩 중...
-            </div>
-          }
-        >
-          <Editor />
-        </Suspense>
-      </div>
+      <Suspense
+        fallback={<div className="flex-center h-full">에디터 로딩 중...</div>}
+      >
+        <Editor />
+      </Suspense>
     </PrivateLayout>
   );
 }

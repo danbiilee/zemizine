@@ -1,7 +1,6 @@
 import { Dialog } from "~/components/ui/dialog";
 import { Button } from "~/components/ui/button";
 import {
-  DialogTrigger,
   DialogContent,
   DialogClose,
   DialogHeader,

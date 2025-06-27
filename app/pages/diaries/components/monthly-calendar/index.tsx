@@ -1,77 +1,33 @@
 import { useParams, Link } from "react-router";
+import { useState } from "react";
+
 import { cn } from "~/lib/utils";
 import CalendarWeekdays from "./weekdays";
-import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import exampleImage from "~/assets/images/example.jpg";
-import { FaRegPenToSquare, FaRegPaperPlane } from "react-icons/fa6";
-import { useState } from "react";
 import { ThemeModal } from "../theme-modal";
-import { Button } from "~/components/ui/button";
+import MonthlyCalendarHeader from "./header";
 
 export default function MonthlyCalendar() {
   const { userId } = useParams();
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="flex flex-col items-center h-full">
+    <div className="flex-center-y flex-col h-full">
       <ThemeModal open={open} onOpenChange={setOpen} />
 
-      {/* Header */}
-      <div className="flex flex-col-reverse items-center w-full mt-10 mb-10 px-5 sm:flex-row sm:justify-between sm:mt-15 sm:px-12">
-        <div className="flex items-center">
-          {/* Title */}
-          <div className="flex flex-col sm:flex-row items-center sm:items-start gap-0.5 order-2 sm:order-1">
-            {/* TODO: 타이틀 없으면 UNTITLED 노출 */}
-            {/* TODO: 타이틀 설정 팝업? */}
-            <Button
-              className="text-2xl font-extrabold sm:text-4xl lg:text-5xl transition-all-300 hover:text-secondary"
-              onClick={() => setOpen(true)}
-            >
-              UNTITLED
-            </Button>
-            <span className="text-sm sm:text-base lg:text-lg">2025.06</span>
-          </div>
-          {/* Navigation */}
-          {/* TODO: 회원가입 날짜 기준 이전달로 못넘어가게 + 오늘날짜 기준 다음달로 못넘어가게 처리 */}
-          {/* TODO: 타이틀 없으면 날짜 노출 */}
-          <button className="order-1 ml-5 mr-3 sm:order-2 sm:mr-5 lg:ml-8">
-            <IoIosArrowBack className="w-6 h-6 stroke-5 sm:stroke-10 md:w-7 md:h-7 lg:w-8 lg:h-8" />
-          </button>
-          <button className="order-3 ml-3 sm:ml-0">
-            <IoIosArrowForward className="w-6 h-6 stroke-5 sm:stroke-10 md:w-7 md:h-7 lg:w-8 lg:h-8" />
-          </button>
-        </div>
-        {/* Action Buttons (Mobile) */}
-        <div className="flex justify-end gap-8 mb-8 sm:mb-0 lg:hidden">
-          <button>
-            <FaRegPenToSquare className="w-6 h-6" />
-          </button>
-          <button>
-            <FaRegPaperPlane className="w-6 h-6" />
-          </button>
-        </div>
-        {/* Action Buttons (Desktop) */}
-        <div className="hidden gap-5 lg:flex">
-          <button className="px-9 py-1.5 font-semibold rounded-full border-2 border-foreground hover:bg-accent hover:border-foreground transition-all-300">
-            기록하기
-          </button>
-          <button className="px-9 py-1.5 font-semibold rounded-full border-2 border-foreground hover:bg-accent hover:border-foreground transition-all-300">
-            발행하기
-          </button>
-        </div>
-      </div>
+      <MonthlyCalendarHeader setOpen={setOpen} />
 
       {/* Calendar */}
       <div className="w-full">
-        {/* Header */}
+        {/* Weekdays Header */}
         <CalendarWeekdays />
         {/* Body */}
-        <ul className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7 border-t-1 md:border-t-2 border-b-1 border-foreground">
+        <ul className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7 border-t-1 md:border-t-2 border-b-1">
           {Array.from({ length: 31 }).map((_, idx) => (
             <li
               key={idx}
               className={cn([
-                "relative aspect-square border-b-1 border-foreground cursor-pointer",
+                "relative aspect-square border-b-1 cursor-pointer",
                 idx % 7 !== 0 && "border-l-1",
               ])}
             >
@@ -79,15 +35,15 @@ export default function MonthlyCalendar() {
               {/* TODO: 상세, 편집 페이지 분기 처리 */}
               <Link
                 to={`/${userId}/diaries/2025-06-01`}
-                className="flex items-center justify-center w-full h-full"
+                className="flex-center size-full"
               >
                 <img
                   src={exampleImage}
                   alt="diary"
-                  className="w-full h-full object-cover"
+                  className="size-full object-cover"
                 />
-                <span className="absolute top-0 left-0 w-full h-full p-2 transition-all-300 group hover:bg-primary-foreground/60">
-                  <span className="px-1.5 md:px-2 py-0.5 rounded-full border border-foreground bg-primary-foreground/60 text-[12px] md:text-sm font-semibold transition-all-300 group-hover:bg-primary-foreground/80">
+                <span className="absolute top-0 left-0 size-full p-2 transition-all-300 hover:bg-primary-foreground/60 group">
+                  <span className="px-1.5 md:px-2 py-0.5 rounded-full border bg-primary-foreground/60 text-[12px] md:text-sm font-semibold transition-all-300 group-hover:bg-primary-foreground/80">
                     {idx + 1}
                   </span>
                 </span>

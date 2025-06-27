@@ -64,7 +64,7 @@
 
   /* green */
   --accent: #52ea52;
-  --accent-foreground: oklch(0.982 0.018 155.826);
+  --accent-foreground: #07cf07;
 
   --radius: 0.65rem;
   --card: oklch(1 0 0);

@@ -3,14 +3,12 @@ import DiaryComments from "./comments";
 
 export default function DiaryContent() {
   return (
-    <div className="border-x-2 border-foreground text-sm lg:text-base">
-      <div className="p-4 sm:p-8">
+    <div className="text-sm md:text-base">
+      <div className="p-4 md:p-8">
         {/* TLDR */}
-        <div className="flex items-center gap-1 md:gap-2 pb-4 sm:pb-8 mb-4 sm:mb-8 border-b-1 border-dashed border-muted-foreground">
-          <span className="text-2xl lg:text-3xl">😉</span>
-          <span className="md:text-base lg:text-lg font-semibold">
-            오늘 하루 맑음
-          </span>
+        <div className="flex-center-y gap-1 md:gap-2 pb-4 md:pb-8 mb-4 md:mb-8 border-b-1 border-dashed-muted">
+          <span className="text-2xl md:text-3xl">😉</span>
+          <span className="md:text-lg font-semibold">오늘 하루 맑음</span>
         </div>
         {/* 내용 */}
         <div>
@@ -37,11 +35,12 @@ export default function DiaryContent() {
           cursus nunc,
         </div>
         {/* 버튼 */}
-        <div className="flex items-center justify-between pt-4 mt-4 border-t-1 border-dashed border-muted-foreground font-semibold">
-          <Button>스티커</Button>
-          <div className="flex items-center gap-3 lg:gap-4">
-            <Button>수정</Button>
-            <Button className="">삭제</Button>
+        <div className="flex-between pt-4 mt-4 border-t-1 border-dashed-muted">
+          <Button className="btn-text-ghost">스티커</Button>
+          <div className="flex-center-y gap-1">
+            <Button className="btn-text-ghost">수정</Button>
+            <span className="divider" />
+            <Button className="btn-text-ghost">삭제</Button>
           </div>
         </div>
       </div>

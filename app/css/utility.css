@@ -6,6 +6,10 @@
   @apply flex items-center justify-between;
 }
 
+@utility flex-end {
+  @apply flex items-center justify-end;
+}
+
 @utility flex-center-y {
   @apply flex items-center;
 }
@@ -21,7 +25,7 @@
 @utility scrollbar {
   /* 스크롤바 전체 영역 */
   &::-webkit-scrollbar {
-    @apply w-[15px] bg-secondary/10;
+    @apply w-[15px] bg-secondary/15;
   }
 
   /* 스크롤바 트랙(기본 배경) */
@@ -35,4 +39,8 @@
     background-clip: padding-box;
     border: 2px solid transparent;
   }
+}
+
+@utility border-dashed-muted {
+  @apply border-dashed border-muted-foreground;
 }
