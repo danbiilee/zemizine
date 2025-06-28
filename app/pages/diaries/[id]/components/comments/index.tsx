@@ -1,5 +1,5 @@
 import CommentItem from "./comment";
-import CommentTextarea from "./textarea";
+import CommentTextarea from "./comment-writer";
 
 export default function DiaryComments() {
   return (
