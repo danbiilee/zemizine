@@ -15,15 +15,9 @@ export default function GlobalNavigation({
     <header className="fixed top-0 left-0 right-0 flex-between h-12 px-5">
       {/* 로고 + 타이틀 */}
       <div className="flex-center-y gap-2">
-        {/* 로고  */}
-        <div className="size-8 rounded-full border-2 text-xl font-bold">
-          <Link to="/" className="flex-center">
-            Z
-          </Link>
-        </div>
         {/* 타이틀 */}
         <h1 className="ml-1 text-lg font-semibold">
-          <Link to={isLoggedIn ? "/homepi" : "/"}>
+          <Link to={isLoggedIn ? "/home" : "/"}>
             {isLoggedIn ? "db.log" : "zemizine"}
           </Link>
         </h1>

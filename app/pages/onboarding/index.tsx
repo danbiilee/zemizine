@@ -9,9 +9,13 @@ export interface OnboardingState {
   data: {
     myNickname: string;
     myProfileImage?: File;
+
     zemTitle: string;
-    zemDescription: string;
-    zemVisibility: "PUBLIC" | "FRIEND" | "PRIVATE";
+    zemDescription?: string;
+
+    monthlyTitle?: string;
+    monthlyDescription?: string;
+    monthlyCoverImage?: File;
   };
 }
 
@@ -23,7 +27,9 @@ export default function Onboarding() {
       myProfileImage: undefined,
       zemTitle: "",
       zemDescription: "",
-      zemVisibility: "PUBLIC",
+      monthlyTitle: "",
+      monthlyDescription: "",
+      monthlyCoverImage: undefined,
     },
   });
 
@@ -49,7 +55,7 @@ export default function Onboarding() {
 
   return (
     <PublicLayout withAutoScroll>
-      <div className="flex-center flex-col gap-10 max-w-120 min-h-full px-10 mx-auto py-15 md:py-20">
+      <div className="flex-center-y max-w-120 min-h-full px-10 mx-auto py-15 md:py-20">
         {showFunnel ? (
           <Funnel
             state={state}

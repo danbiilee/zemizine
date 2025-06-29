@@ -11,6 +11,7 @@ interface ZemiFileUploadProps {
   name?: string;
   field?: ControllerRenderProps<any>;
   defaultPreviewImage?: string;
+  buttonLabel?: string;
 }
 
 export default function ZemiFileUpload({
@@ -18,6 +19,7 @@ export default function ZemiFileUpload({
   name,
   field,
   defaultPreviewImage,
+  buttonLabel = "업로드",
 }: ZemiFileUploadProps) {
   const inputRef = useRef<HTMLInputElement>(null);
   const [preview, setPreview] = useState<string | null>(null);
@@ -46,10 +48,10 @@ export default function ZemiFileUpload({
             }}
           />
           <Button
-            className="w-full px-4 py-2 text-center font-semibold"
+            className="w-full px-4 py-2 text-center font-semibold hover:bg-accent transition-colors"
             onClick={() => inputRef.current?.click()}
           >
-            업로드
+            {buttonLabel}
           </Button>
         </div>
       </FormControl>

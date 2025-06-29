@@ -9,7 +9,6 @@ import {
   FormControl,
   FormMessage,
 } from "~/components/ui/form";
-import NextButton from "./button";
 import { Input } from "~/components/ui/input";
 import { Textarea } from "~/components/ui/textarea";
 
@@ -24,7 +23,7 @@ const FormSchema = z.object({
 
 interface OnboardingSpaceProps {
   zemTitle: string;
-  zemDescription: string;
+  zemDescription?: string;
   handleClick: (data: Partial<OnboardingState["data"]>) => void;
 }
 
@@ -64,7 +63,7 @@ export default function OnboardingSpace({
                 <FormControl>
                   <Input
                     className="input-outline px-3 md:px-5 py-5 md:py-6"
-                    placeholder="잼에 어울리는 이름을 붙여주세요"
+                    placeholder="내 잼에 어울리는 이름을 붙여주세요"
                     {...field}
                   />
                 </FormControl>
@@ -80,7 +79,7 @@ export default function OnboardingSpace({
                 <FormControl>
                   <Textarea
                     className="input-outline px-3 md:px-5"
-                    placeholder="내 잼은 이런 공간이에요!"
+                    placeholder="내 잼은 이런 공간이에요"
                     {...field}
                   />
                 </FormControl>
@@ -88,7 +87,6 @@ export default function OnboardingSpace({
             )}
           />
         </div>
-        <NextButton title="다음" />
       </form>
     </Form>
   );

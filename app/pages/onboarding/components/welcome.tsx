@@ -11,11 +11,15 @@ export default function OnboardingWelcome({
   const currentInfo = FUNNEL_STEPS[0];
 
   return (
-    <>
+    <div className="flex-1 flex-center flex-col gap-10">
+      {/* 타이틀 */}
       <h2 className="text-2xl md:text-3xl font-bold">{currentInfo.title}</h2>
-      <div className="text-center md:text-lg">{currentInfo.description}</div>
-      <div className="size-full border-2">대충 인사하는 이미지</div>
-      <OnboardingButton title="시작할래요" onClick={handleStepChange} />
-    </>
+      {/* 설명 */}
+      <div className="flex flex-col gap-8 text-zinc-600 text-center md:text-lg">
+        {currentInfo.description}
+      </div>
+      {/* 버튼 */}
+      <OnboardingButton title={currentInfo.button} onClick={handleStepChange} />
+    </div>
   );
 }

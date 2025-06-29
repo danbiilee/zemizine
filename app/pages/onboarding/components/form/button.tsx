@@ -10,7 +10,11 @@ export default function OnboardingButton({
   onClick,
 }: OnboardingButtonProps) {
   return (
-    <Button className="w-full py-1.5 btn-accent md:text-lg" onClick={onClick}>
+    <Button
+      type="submit"
+      className="w-full py-1.5 btn-accent md:text-lg"
+      onClick={onClick}
+    >
       {title}
     </Button>
   );

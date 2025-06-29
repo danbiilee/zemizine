@@ -1,7 +1,6 @@
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { useState, useEffect } from "react";
 
 import {
   Form,
@@ -12,7 +11,6 @@ import {
 } from "~/components/ui/form";
 import ZemiFileUpload from "~/components/zemi/zemi-file-upload";
 import { Input } from "~/components/ui/input";
-import NextButton from "./button";
 import defaultPreviewImage from "~/assets/images/my-notion-face-transparent.png";
 
 import type { OnboardingState } from "../..";
@@ -25,7 +23,7 @@ const FormSchema = z.object({
 });
 
 interface OnboardingProfileProps {
-  myNickname?: string;
+  myNickname: string;
   myProfileImage?: File;
   handleClick: (data: Partial<OnboardingState["data"]>) => void;
 }
@@ -83,13 +81,13 @@ export default function OnboardingUser({
             name="myProfileImage"
             render={({ field }) => (
               <ZemiFileUpload
-                field={field}
                 defaultPreviewImage={defaultPreviewImage}
+                buttonLabel="프로필 이미지 업로드"
+                field={field}
               />
             )}
           />
         </div>
-        <NextButton title="다음" />
       </form>
     </Form>
   );
