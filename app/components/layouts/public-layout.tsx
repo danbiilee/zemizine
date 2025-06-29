@@ -1,5 +1,5 @@
 import GlobalNavigation from "~/components/navigations/global-navigation";
-import AutoScrollContainer from "./auto-scroll-container";
+import ScrollContainer from "./scroll-container";
 
 interface MainLayoutProps {
   children: React.ReactNode;
@@ -17,7 +17,7 @@ export default function PublicLayout({
       <GlobalNavigation isLoggedIn={isLoggedIn} />
       <div className="flex-1 flex flex-col border-2">
         {withAutoScroll ? (
-          <AutoScrollContainer>{children}</AutoScrollContainer>
+          <ScrollContainer>{children}</ScrollContainer>
         ) : (
           children
         )}

@@ -8,7 +8,7 @@ import {
   DialogTitle,
 } from "../ui/dialog";
 import { Button } from "../ui/button";
-import AutoScrollContainer from "../layouts/auto-scroll-container";
+import ScrollContainer from "../layouts/scroll-container";
 
 interface ZemiDialogProps {
   open: boolean;
@@ -40,7 +40,7 @@ export default function ZemiDialog({
         </DialogHeader>
         {/* 컨텐츠 */}
         <div className="flex max-h-[550px] mx-4 border-2 bg-primary-foreground">
-          <AutoScrollContainer className="p-4">{children}</AutoScrollContainer>
+          <ScrollContainer className="p-4">{children}</ScrollContainer>
         </div>
         {/* 푸터 */}
         <DialogFooter>
