@@ -13,7 +13,7 @@ import { profiles } from "./users";
 import { SPACE_VISIBILITY } from "~/constants/space";
 
 export const spaceVisibility = pgEnum(
-  "diary_status",
+  "space_visibility",
   Object.keys(SPACE_VISIBILITY) as [string, ...string[]]
 );
 
