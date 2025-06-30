@@ -5,29 +5,8 @@
     {
       "idx": 0,
       "version": "7",
-      "when": 1750079334371,
-      "tag": "0000_modern_golden_guardian",
-      "breakpoints": true
-    },
-    {
-      "idx": 1,
-      "version": "7",
-      "when": 1750079872957,
-      "tag": "0001_overrated_proemial_gods",
-      "breakpoints": true
-    },
-    {
-      "idx": 2,
-      "version": "7",
-      "when": 1750081669673,
-      "tag": "0002_rare_surge",
-      "breakpoints": true
-    },
-    {
-      "idx": 3,
-      "version": "7",
-      "when": 1750084579019,
-      "tag": "0003_brown_maelstrom",
+      "when": 1751291279034,
+      "tag": "0000_silky_morg",
       "breakpoints": true
     }
   ]
