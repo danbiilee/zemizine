@@ -37,6 +37,7 @@ export const diaries = pgTable(
     status: diaryStatus().notNull(),
     title: text().notNull(),
     content: text(), // 0자 허용
+    thumbnail_image: text(),
     views: integer().notNull().default(0),
     date: date().notNull(), // YYYY-MM-DD
     created_at: timestamp().notNull().defaultNow(),

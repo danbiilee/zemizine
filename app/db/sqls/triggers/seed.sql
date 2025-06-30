@@ -4,13 +4,24 @@ VALUES
   ('a569caa9-3e24-4c8a-a130-e5b04d926eb5', '안냥', '메이커 클럽 아자자자', 'PUBLIC', '{"views": 5}'::jsonb);
 
 -- diaries 테이블 데이터
-INSERT INTO diaries (profile_id, status, title, content, views, date)
+INSERT INTO diaries (profile_id, status, title, content, thumbnail_image, views, date)
 VALUES
-  ('a569caa9-3e24-4c8a-a130-e5b04d926eb5', 'SUNNY', '오늘의 일기', '오늘은 날씨가 좋았다.', 10, '2025-06-20'),
+  ('a569caa9-3e24-4c8a-a130-e5b04d926eb5', 'SUNNY', '오늘의 일기', '오늘은 날씨가 좋았다.', 'https://cdn.pixabay.com/photo/2024/09/19/14/44/cat-9059025_1280.jpg', 10, '2025-06-20'),
   ('a569caa9-3e24-4c8a-a130-e5b04d926eb5', 'CLOUDY', '친구들과의 하루', '친구들과 즐거운 시간을 보냈다.', 5, '2025-06-19'),
   ('a569caa9-3e24-4c8a-a130-e5b04d926eb5', 'RAINY', '봄 나들이', '벚꽃이 예쁘게 피었다.', 15, '2025-06-18'),
   ('a569caa9-3e24-4c8a-a130-e5b04d926eb5', 'PILL', '비밀 일기', '오늘의 비밀스러운 이야기', 0, '2025-06-17'),
   ('a569caa9-3e24-4c8a-a130-e5b04d926eb5', 'CLOUDY', '운동 일지', '오늘도 열심히 운동했다.', 8, '2025-06-16');
+
+-- diary_likes 테이블 데이터  
+INSERT INTO diary_likes (diary_id, profile_id)
+VALUES
+  (1, '86978641-410c-41fc-a745-63d9cba8d7f1');
+
+-- diary_comments 테이블 데이터
+INSERT INTO diary_comments (diary_id, profile_id, content)
+VALUES
+  (1, '86978641-410c-41fc-a745-63d9cba8d7f1', '날씨가 정말 좋았네요!'),
+  (1, '86978641-410c-41fc-a745-63d9cba8d7f1', '저도 오늘 산책 다녀왔어요~');
 
 -- guestbooks 테이블 데이터
 INSERT INTO guestbooks (owner_profile_id, author_profile_id, content, is_secret)
