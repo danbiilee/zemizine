@@ -1,4 +1,4 @@
-import { getDiaries, getDiary } from "~/db/queries/diaries";
+import { getDiaries } from "~/db/queries/diaries";
 import MonthlyCalendar from "./components/monthly-calendar";
 import PrivateLayout from "~/components/layouts/private-layout";
 
@@ -11,13 +11,13 @@ import type { Route } from "./+types";
  */
 export const loader = async () => {
   const diaries = await getDiaries();
-  const diary = await getDiary(1);
-  return { diaries, diary };
+  // const diary = await getDiary(1);
+  return { diaries };
 };
 
 export default function Diary({ loaderData }: Route.ComponentProps) {
-  const { diaries, diary } = loaderData;
-  console.log(diaries, diary);
+  const { diaries } = loaderData;
+  console.log(diaries);
 
   return (
     <PrivateLayout>

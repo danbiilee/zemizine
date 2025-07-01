@@ -9,7 +9,8 @@
     "typecheck": "react-router typegen && tsc",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
-    "db:studio": "drizzle-kit studio"
+    "db:studio": "drizzle-kit studio",
+    "db:typegen": "supabase gen types typescript --project-id rcexgcskpaxhlsepnqqc > app/db/database.types.ts"
   },
   "dependencies": {
     "@ckeditor/ckeditor5-react": "^9.5.0",
