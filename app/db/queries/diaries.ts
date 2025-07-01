@@ -44,7 +44,7 @@ import client from "~/supa-client";
 // };
 
 /**
- * Supabase Client 사용
+ * Supabase Client + Views 사용
  */
 export const getDiaries = async () => {
   const { data, error } = await client.from("diaries_view").select("*");

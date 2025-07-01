@@ -15,7 +15,7 @@ BEGIN
         VALUES (new.id, substr(md5(random()::text), 1, 8)); -- 랜덤 값으로 고유 닉네임 생성
       END IF;
     END IF;
-    RETURN NEW;
+    RETURN new;
 END;
 $$; 
 

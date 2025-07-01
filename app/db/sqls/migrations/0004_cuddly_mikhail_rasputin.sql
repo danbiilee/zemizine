@@ -1,0 +1,1 @@
+ALTER TABLE "diaries" RENAME COLUMN "views" TO "likes";

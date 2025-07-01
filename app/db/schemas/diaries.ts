@@ -11,6 +11,7 @@ import {
   integer,
   primaryKey,
   check,
+  jsonb,
 } from "drizzle-orm/pg-core";
 import { sql } from "drizzle-orm";
 import { DIARY_STATUS } from "~/constants/diary";
@@ -38,7 +39,7 @@ export const diaries = pgTable(
     title: text().notNull(),
     content: text(), // 0자 허용
     thumbnail_image: text(),
-    views: integer().notNull().default(0),
+    likes: integer().notNull().default(0),
     date: date().notNull(), // YYYY-MM-DD
     created_at: timestamp().notNull().defaultNow(),
     updated_at: timestamp().notNull().defaultNow(),
