@@ -1,0 +1,1 @@
+ALTER TABLE "diaries" ALTER COLUMN "stats" SET DEFAULT '{"views":0,"likes":0,"comments":0}'::jsonb;

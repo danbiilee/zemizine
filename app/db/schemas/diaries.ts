@@ -8,7 +8,6 @@ import {
   type AnyPgColumn,
   unique,
   date,
-  integer,
   primaryKey,
   check,
   jsonb,
@@ -39,8 +38,8 @@ export const diaries = pgTable(
     title: text().notNull(),
     content: text(), // 0자 허용
     thumbnail_image: text(),
-    likes: integer().notNull().default(0),
-    date: date().notNull(), // YYYY-MM-DD
+    stats: jsonb().notNull().default({ views: 0, likes: 0, comments: 0 }),
+    date: date().notNull(),
     created_at: timestamp().notNull().defaultNow(),
     updated_at: timestamp().notNull().defaultNow(),
   },

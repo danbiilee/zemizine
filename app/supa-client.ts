@@ -25,9 +25,9 @@ type Database = MergeDeep<
   }
 >;
 
+// 클라이언트에선 process.env 사용 불가
 const client = createClient<Database>(
   process.env.SUPABASE_URL!,
   process.env.SUPABASE_ANON_KEY!
 );
-
 export default client;

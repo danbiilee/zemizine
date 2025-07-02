@@ -39,7 +39,7 @@ export default function ZemiDialog({
           {description && <DialogDescription>{description}</DialogDescription>}
         </DialogHeader>
         {/* 컨텐츠 */}
-        <div className="flex max-h-[550px] mx-4 border-2 bg-primary-foreground">
+        <div className="flex max-h-[calc(100vh-350px)] mx-4 border-2 bg-primary-foreground">
           <ScrollContainer className="p-4">{children}</ScrollContainer>
         </div>
         {/* 푸터 */}

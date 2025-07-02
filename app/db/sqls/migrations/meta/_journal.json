@@ -36,6 +36,20 @@
       "when": 1751346852299,
       "tag": "0004_cuddly_mikhail_rasputin",
       "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1751369545275,
+      "tag": "0005_flaky_dakota_north",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1751369603323,
+      "tag": "0006_steady_unicorn",
+      "breakpoints": true
     }
   ]
 }
