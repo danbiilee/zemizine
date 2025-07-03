@@ -1,6 +1,7 @@
 import MonthlyCalendar from "./components/monthly-calendar";
 import PrivateLayout from "~/components/layouts/private-layout";
-import { getDiaries, getMonthlyTheme } from "~/db/queries/diaries";
+import { getDiaries } from "~/db/queries/diaries";
+import { getMonthlyTheme } from "~/db/queries/monthlyTheme";
 import { getMonthRange } from "~/lib/date-utils";
 import { redirect } from "react-router";
 import { format } from "date-fns";

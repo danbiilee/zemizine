@@ -20,7 +20,7 @@ export type Database = {
           stats: Json
           status: Database["public"]["Enums"]["diary_status"]
           thumbnail_image: string | null
-          title: string
+          title: string | null
           updated_at: string
         }
         Insert: {
@@ -33,7 +33,7 @@ export type Database = {
           stats?: Json
           status: Database["public"]["Enums"]["diary_status"]
           thumbnail_image?: string | null
-          title: string
+          title?: string | null
           updated_at?: string
         }
         Update: {
@@ -46,7 +46,7 @@ export type Database = {
           stats?: Json
           status?: Database["public"]["Enums"]["diary_status"]
           thumbnail_image?: string | null
-          title?: string
+          title?: string | null
           updated_at?: string
         }
         Relationships: [

@@ -35,7 +35,7 @@ export const diaries = pgTable(
       .generatedAlwaysAsIdentity(),
     profile_id: uuid().notNull(),
     status: diaryStatus().notNull(),
-    title: varchar({ length: 40 }).notNull(),
+    title: varchar({ length: 40 }),
     content: text(), // 0자 허용
     thumbnail_image: text(),
     stats: jsonb().notNull().default({ views: 0, likes: 0, comments: 0 }),
@@ -50,10 +50,6 @@ export const diaries = pgTable(
       name: "fk_diaries_profile_id",
     }).onDelete("cascade"),
     unique().on(table.profile_id, table.date),
-    check(
-      "title_length",
-      sql`LENGTH(${table.title}) >= 1 AND LENGTH(${table.title}) <= 40`
-    ),
     check("content_length", sql`LENGTH(${table.content}) <= 65_535`),
   ]
 );

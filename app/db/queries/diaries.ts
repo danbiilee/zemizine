@@ -21,7 +21,6 @@ export const getDiaries = async ({
         title,
         thumbnail:thumbnail_image,
         date,
-        likes:stats->>likes,
         profiles!fk_diaries_profile_id!inner (
           slug
         )
@@ -36,21 +35,26 @@ export const getDiaries = async ({
   return data;
 };
 
-export async function getMonthlyTheme({
+export const getDiary = async ({
   slug,
   date,
 }: {
   slug: string;
   date: string;
-}) {
+}) => {
   const { data, error } = await client
-    .from("monthly_themes")
+    .from("diaries")
     .select(
       `
+        status,
         title,
-        description,
-        coverImage:cover_image,
-        profiles!fk_monthly_themes_profile_id!inner (
+        content,
+        thumbnail:thumbnail_image,
+        date,
+        likeCount:stats->>likes,
+        commentCount:stats->>comments,
+        updatedAt:updated_at,
+        profiles!fk_diaries_profile_id!inner (
           slug
         )
       `
@@ -60,10 +64,5 @@ export async function getMonthlyTheme({
     .maybeSingle();
 
   if (error) throw error;
-
-  return {
-    title: data?.title ?? null,
-    description: data?.description ?? null,
-    coverImage: data?.coverImage ?? null,
-  };
-}
+  return data;
+};

@@ -15,7 +15,7 @@ export default [
     route("home", "./pages/home/index.tsx"),
     route("diaries", "./pages/diaries/index.tsx"),
     route("diaries/create", "./pages/diaries/create/index.tsx"),
-    route("diaries/:diaryId", "./pages/diaries/[id]/index.tsx"),
+    route("diaries/:date", "./pages/diaries/[date]/index.tsx"),
     route("guestbooks", "./pages/guestbooks/index.tsx"),
     route("settings", "./pages/settings/index.tsx"),
   ]),

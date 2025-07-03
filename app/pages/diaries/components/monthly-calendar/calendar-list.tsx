@@ -3,12 +3,15 @@ import { getMonthDays } from "~/lib/date-utils";
 import CalendarCell from "./calendar-cell";
 
 export interface Diary {
-  id: number;
+  id?: number;
   status: string;
-  title: string;
-  thumbnail: string | null;
-  likes: string;
+  title?: string;
+  content?: string;
+  thumbnail?: string;
+  likeCount?: string;
+  commentCount?: string;
   date: string;
+  updatedAt?: string;
 }
 
 interface CalendarListProps {
