@@ -22,7 +22,7 @@ const diaries = [
 ];
 
 export default function DiaryOverview() {
-  const { userId } = useParams();
+  const { slug } = useParams();
 
   const weekDates = getWeekDates();
 

@@ -6,16 +6,16 @@ import { cn } from "~/lib/utils";
 
 export default function LocalNavigation() {
   const location = useLocation();
-  const { userId } = useParams();
+  const { slug } = useParams();
 
   const formattedLNB_MENUS = useMemo(
     () =>
       LNB_MENUS.map((menu) => ({
         ...menu,
-        to: `/${userId}${menu.to}`,
+        to: `/${slug}${menu.to}`,
         selected: location.pathname.includes(menu.to),
       })),
-    [userId, location.pathname]
+    [slug, location.pathname]
   );
 
   return (

@@ -17,25 +17,24 @@ export const meta: Route.MetaFunction = () => {
 export const loader = async ({ request, params }: Route.LoaderArgs) => {
   const url = new URL(request.url);
   const currentMonth = url.searchParams.get("month");
-  const { userId } = params;
+  const { slug } = params;
 
   // URL에 month 파라미터가 없으면 현재 월로 리다이렉트
   if (!currentMonth) {
     const today = new Date();
     const defaultMonth = format(today, "yyyy-MM");
-    return redirect(`/${userId}/diaries?month=${defaultMonth}`);
+    return redirect(`/${slug}/diaries?month=${defaultMonth}`);
   }
 
   // YYYY-MM 형식의 날짜 검증
   if (!/^\d{4}-\d{2}$/.test(currentMonth)) {
-    return redirect(
-      `/${userId}/diaries?month=${format(new Date(), "yyyy-MM")}`
-    );
+    return redirect(`/${slug}/diaries?month=${format(new Date(), "yyyy-MM")}`);
   }
 
   const baseDate = `${currentMonth}-01`;
   const { startDate, endDate } = getMonthRange(baseDate);
   const diaries = getDiaries({
+    slug,
     startDate,
     endDate,
   });

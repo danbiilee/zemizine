@@ -4,9 +4,11 @@ import client from "~/supa-client";
  * Supabase Client + Views 사용
  */
 export const getDiaries = async ({
+  slug,
   startDate,
   endDate,
 }: {
+  slug: string;
   startDate: string;
   endDate: string;
 }) => {
@@ -19,9 +21,13 @@ export const getDiaries = async ({
         title,
         thumbnail:thumbnail_image,
         date,
-        likes:stats->>likes
+        likes:stats->>likes,
+        profiles!fk_diaries_profile_id!inner (
+          slug
+        )
       `
     )
+    .eq("profiles.slug", slug)
     .gte("date", startDate)
     .lte("date", endDate)
     .order("date");

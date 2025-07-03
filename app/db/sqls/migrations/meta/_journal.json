@@ -50,6 +50,13 @@
       "when": 1751369603323,
       "tag": "0006_steady_unicorn",
       "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "7",
+      "when": 1751547964587,
+      "tag": "0007_cultured_steel_serpent",
+      "breakpoints": true
     }
   ]
 }

@@ -8,12 +8,12 @@ import CalendarList from "./calendar-list";
 
 export default function MonthlyCalendar() {
   const { diaries, currentMonth } = useLoaderData();
-  const { userId } = useParams();
+  const { slug } = useParams();
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
 
   const handleMonthChange = (newMonth: string) => {
-    navigate(`/${userId}/diaries?month=${newMonth}`);
+    navigate(`/${slug}/diaries?month=${newMonth}`);
   };
 
   return (

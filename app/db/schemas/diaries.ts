@@ -11,6 +11,7 @@ import {
   primaryKey,
   check,
   jsonb,
+  foreignKey,
 } from "drizzle-orm/pg-core";
 import { sql } from "drizzle-orm";
 import { DIARY_STATUS } from "~/constants/diary";
@@ -31,9 +32,7 @@ export const diaries = pgTable(
     diary_id: bigint({ mode: "number" })
       .primaryKey()
       .generatedAlwaysAsIdentity(),
-    profile_id: uuid()
-      .notNull()
-      .references(() => profiles.profile_id, { onDelete: "cascade" }),
+    profile_id: uuid().notNull(),
     status: diaryStatus().notNull(),
     title: text().notNull(),
     content: text(), // 0자 허용
@@ -44,6 +43,11 @@ export const diaries = pgTable(
     updated_at: timestamp().notNull().defaultNow(),
   },
   (table) => [
+    foreignKey({
+      columns: [table.profile_id],
+      foreignColumns: [profiles.profile_id],
+      name: "fk_diaries_profile_id",
+    }).onDelete("cascade"),
     unique().on(table.profile_id, table.date),
     check(
       "title_length",

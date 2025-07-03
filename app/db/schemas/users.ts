@@ -8,6 +8,7 @@ import {
   uuid,
   primaryKey,
   check,
+  varchar,
 } from "drizzle-orm/pg-core";
 
 /**
@@ -28,7 +29,8 @@ export const profiles = pgTable(
     profile_id: uuid()
       .primaryKey()
       .references(() => users.id, { onDelete: "cascade" }),
-    nickname: text().notNull(),
+    slug: varchar({ length: 16 }).notNull().unique(), // URL slug
+    nickname: varchar({ length: 10 }).notNull(), // 사용자 표기명
     profile_image: text(),
     stats: jsonb().$type<{
       friends: number;
@@ -37,6 +39,10 @@ export const profiles = pgTable(
     updated_at: timestamp().notNull().defaultNow(),
   },
   (table) => [
+    check(
+      "slug_length",
+      sql`LENGTH(${table.slug}) >= 3 AND LENGTH(${table.slug}) <= 16`
+    ),
     check(
       "nickname_length",
       sql`LENGTH(${table.nickname}) >= 2 AND LENGTH(${table.nickname}) <= 10`

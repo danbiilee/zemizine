@@ -16,7 +16,7 @@ export default function CellData({ day, diary }: CellDataProps) {
     return null;
   }
 
-  const { userId } = useParams();
+  const { slug } = useParams();
   const endPath = diary ? `${day.date}` : "create";
 
   const renderCell = () => {
@@ -58,10 +58,7 @@ export default function CellData({ day, diary }: CellDataProps) {
   };
 
   return (
-    <Link
-      to={`/${userId}/diaries/${endPath}`}
-      className="flex-center size-full"
-    >
+    <Link to={`/${slug}/diaries/${endPath}`} className="flex-center size-full">
       {renderCell()}
     </Link>
   );
