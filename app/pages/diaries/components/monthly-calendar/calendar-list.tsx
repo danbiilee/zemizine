@@ -14,22 +14,27 @@ export interface Diary {
 interface CalendarListProps {
   diaries: Diary[];
   currentMonth: string;
+  themeCover?: string;
 }
 
 export default function CalendarList({
   diaries,
   currentMonth,
+  themeCover,
 }: CalendarListProps) {
   const baseDate = `${currentMonth}-01`;
   const days = getMonthDays(baseDate);
 
+  const bgUrl = themeCover ?? "/gpt-empty-jam.png";
+
   return (
     <ul className="relative grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7 border-t-1 md:border-t-2 bg-primary/50 overflow-hidden">
-      {/* TODO: 배경 테마 이미지로 변경 (https://i.pinimg.com/736x/b3/4f/c0/b34fc024e86ec102c021fd5efe049257.jpg) */}
       <div
-        className="absolute inset-0 opacity-30 bg-[url('/gpt-empty-jam.png')] bg-[length:120%_120%] bg-center transition-[background-size] duration-500 ease-in-out group-hover:bg-[length:140%_140%]"
+        className="absolute inset-0 opacity-30 bg-cover bg-center bg-fixed"
+        style={{ backgroundImage: `url('${bgUrl}')` }}
         aria-hidden="true"
       />
+      ㅑ
       {days.map((day, idx) => {
         const diary = diaries.find((diary) => diary.date === day.date);
         return (

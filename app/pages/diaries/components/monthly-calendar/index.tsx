@@ -7,7 +7,8 @@ import MonthlyCalendarHeader from "./header";
 import CalendarList from "./calendar-list";
 
 export default function MonthlyCalendar() {
-  const { diaries, currentMonth } = useLoaderData();
+  // TODO: 타입 추론 안됨
+  const { diaries, monthlyTheme, currentMonth } = useLoaderData();
   const { slug } = useParams();
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
@@ -18,11 +19,16 @@ export default function MonthlyCalendar() {
 
   return (
     <div className="flex-center-y flex-col h-full">
-      <ThemeModal open={open} onOpenChange={setOpen} />
+      <ThemeModal
+        monthlyTheme={monthlyTheme}
+        open={open}
+        onOpenChange={setOpen}
+      />
 
       {/* Header */}
       <MonthlyCalendarHeader
         currentMonth={currentMonth}
+        themeTitle={monthlyTheme?.title}
         onMonthChange={handleMonthChange}
         setOpen={setOpen}
       />
@@ -36,7 +42,11 @@ export default function MonthlyCalendar() {
         <Suspense fallback={<div>Loading...</div>}>
           <Await resolve={diaries}>
             {(diaries) => (
-              <CalendarList diaries={diaries} currentMonth={currentMonth} />
+              <CalendarList
+                diaries={diaries}
+                currentMonth={currentMonth}
+                themeCover={monthlyTheme?.coverImage}
+              />
             )}
           </Await>
         </Suspense>

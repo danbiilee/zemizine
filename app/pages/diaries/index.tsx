@@ -1,6 +1,6 @@
 import MonthlyCalendar from "./components/monthly-calendar";
 import PrivateLayout from "~/components/layouts/private-layout";
-import { getDiaries } from "~/db/queries/diaries";
+import { getDiaries, getMonthlyTheme } from "~/db/queries/diaries";
 import { getMonthRange } from "~/lib/date-utils";
 import { redirect } from "react-router";
 import { format } from "date-fns";
@@ -33,13 +33,25 @@ export const loader = async ({ request, params }: Route.LoaderArgs) => {
 
   const baseDate = `${currentMonth}-01`;
   const { startDate, endDate } = getMonthRange(baseDate);
-  const diaries = getDiaries({
-    slug,
-    startDate,
-    endDate,
-  });
 
-  return { diaries, currentMonth };
+  // 다이어리와 먼슬리테마 데이터를 병렬로 조회
+  const [diaries, monthlyTheme] = await Promise.all([
+    getDiaries({
+      slug,
+      startDate,
+      endDate,
+    }),
+    getMonthlyTheme({
+      slug,
+      date: baseDate,
+    }),
+  ]);
+
+  return {
+    diaries,
+    monthlyTheme,
+    currentMonth,
+  };
 };
 
 export default function Diaries() {

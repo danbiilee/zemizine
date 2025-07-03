@@ -13,12 +13,14 @@ import {
 
 interface MonthlyCalendarHeaderProps {
   currentMonth: string; // YYYY-MM
+  themeTitle?: string;
   onMonthChange: (newMonth: string) => void;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export default function MonthlyCalendarHeader({
   currentMonth,
+  themeTitle,
   onMonthChange,
   setOpen,
 }: MonthlyCalendarHeaderProps) {
@@ -47,9 +49,10 @@ export default function MonthlyCalendarHeader({
       <div className="flex-center-y">
         {/* Title */}
         <div className="flex-center-y flex-col md:flex-row md:items-start gap-0.5 order-2 md:order-1">
-          {/* TODO: 타이틀 없으면 날짜 노출 */}
-          <h1 className="text-3xl md:text-4xl font-extrabold">UNTITLED</h1>
-          <span className="md:text-lg">{displayMonth}</span>
+          <h1 className="text-3xl md:text-4xl font-extrabold">
+            {themeTitle || displayMonth}
+          </h1>
+          {themeTitle && <span className="md:text-lg">{displayMonth}</span>}
         </div>
 
         {/* Navigation */}

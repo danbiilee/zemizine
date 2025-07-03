@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -12,34 +12,42 @@ import defaultPreviewImage from "~/assets/images/my-notion-face-transparent.png"
 import { Form, FormControl, FormField, FormItem } from "~/components/ui/form";
 
 const FormSchema = z.object({
-  coverTitle: z.string().min(1, {
-    message: "타이틀은 1글자 이상, 20글자 이하여야 해요!",
+  title: z.string().min(1, {
+    message: "타이틀은 1글자 이상, 16글자 이하여야 해요!",
   }),
-  coverDescription: z.string().min(1, {
-    message: "설명은 1글자 이상, 100글자 이하여야 해요!",
-  }),
+  description: z.string().optional(),
   coverImage: z.instanceof(File).optional(),
 });
 
 interface ThemeModalProps {
+  monthlyTheme: {
+    title?: string;
+    description?: string;
+    coverImage?: string;
+  };
   open: boolean;
   onOpenChange: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export function ThemeModal({ open, onOpenChange }: ThemeModalProps) {
-  const [monthlyBook, setMonthlyBook] = useState({
-    coverTitle: "",
-    coverDescription: "",
-    coverImage: null,
-  });
-
+export function ThemeModal({
+  monthlyTheme,
+  open,
+  onOpenChange,
+}: ThemeModalProps) {
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
-      coverTitle: monthlyBook.coverTitle,
-      coverDescription: monthlyBook.coverDescription,
+      title: monthlyTheme.title ?? "",
+      description: monthlyTheme.description ?? "",
     },
   });
+
+  useEffect(() => {
+    form.reset({
+      title: monthlyTheme.title ?? "",
+      description: monthlyTheme.description ?? "",
+    });
+  }, [monthlyTheme, form]);
 
   return (
     <ZemiDialog
@@ -53,14 +61,14 @@ export function ThemeModal({ open, onOpenChange }: ThemeModalProps) {
           {/* 타이틀 */}
           <FormField
             control={form.control}
-            name="coverTitle"
+            name="title"
             render={({ field }) => (
               <FormItem>
                 <FormControl>
-                  <ZemiLableField name="coverTitle" label="타이틀">
+                  <ZemiLableField name="title" label="타이틀">
                     <Input
                       className="input-outline h-10!"
-                      id="coverTitle"
+                      id="title"
                       placeholder="타이틀을 입력해주세요"
                       {...field}
                     />
@@ -73,14 +81,14 @@ export function ThemeModal({ open, onOpenChange }: ThemeModalProps) {
           {/* 설명 */}
           <FormField
             control={form.control}
-            name="coverDescription"
+            name="description"
             render={({ field }) => (
               <FormItem>
                 <FormControl>
-                  <ZemiLableField name="coverDescription" label="설명">
+                  <ZemiLableField name="description" label="설명">
                     <Textarea
                       className="input-outline max-h-30"
-                      id="coverDescription"
+                      id="description"
                       placeholder="테마에 대해 설명해주세요"
                       {...field}
                     />
@@ -100,7 +108,9 @@ export function ThemeModal({ open, onOpenChange }: ThemeModalProps) {
                   <ZemiLableField name="coverImage" label="커버 이미지">
                     <ZemiFileUpload
                       id="coverImage"
-                      defaultPreviewImage={defaultPreviewImage}
+                      defaultPreviewImage={
+                        monthlyTheme.coverImage ?? defaultPreviewImage
+                      }
                       {...field}
                     />
                   </ZemiLableField>

@@ -12,6 +12,7 @@ import {
   check,
   jsonb,
   foreignKey,
+  varchar,
 } from "drizzle-orm/pg-core";
 import { sql } from "drizzle-orm";
 import { DIARY_STATUS } from "~/constants/diary";
@@ -34,7 +35,7 @@ export const diaries = pgTable(
       .generatedAlwaysAsIdentity(),
     profile_id: uuid().notNull(),
     status: diaryStatus().notNull(),
-    title: text().notNull(),
+    title: varchar({ length: 40 }).notNull(),
     content: text(), // 0자 허용
     thumbnail_image: text(),
     stats: jsonb().notNull().default({ views: 0, likes: 0, comments: 0 }),

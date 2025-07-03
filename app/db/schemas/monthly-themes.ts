@@ -7,6 +7,8 @@ import {
   date,
   unique,
   check,
+  foreignKey,
+  varchar,
 } from "drizzle-orm/pg-core";
 import { sql } from "drizzle-orm";
 import { profiles } from "./users";
@@ -21,10 +23,8 @@ export const monthly_themes = pgTable(
     theme_id: bigint({ mode: "number" })
       .primaryKey()
       .generatedAlwaysAsIdentity(),
-    profile_id: uuid()
-      .notNull()
-      .references(() => profiles.profile_id, { onDelete: "cascade" }),
-    title: text().notNull(),
+    profile_id: uuid().notNull(),
+    title: varchar({ length: 16 }).notNull(),
     description: text(),
     cover_image: text(),
     date: date().notNull(), // YYYY-MM-01 형식으로 저장
@@ -32,8 +32,12 @@ export const monthly_themes = pgTable(
     updated_at: timestamp().notNull().defaultNow(),
   },
   (table) => [
+    foreignKey({
+      columns: [table.profile_id],
+      foreignColumns: [profiles.profile_id],
+      name: "fk_monthly_themes_profile_id",
+    }).onDelete("cascade"),
     unique().on(table.profile_id, table.date),
-    // date 컬럼이 항상 월의 첫 날이어야 함
     check(
       "date_first_day_of_month",
       sql`date_trunc('month', ${table.date}) = ${table.date}`
